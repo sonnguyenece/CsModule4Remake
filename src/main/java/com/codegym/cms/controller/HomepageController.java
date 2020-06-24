@@ -17,6 +17,7 @@ public class HomepageController {
             return "/login/loginForm";
     }
 
+
     @GetMapping("/sigup")
     public String signUp(){
         return "/login/signUp";

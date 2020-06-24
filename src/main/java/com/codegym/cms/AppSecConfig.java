@@ -50,6 +50,7 @@ public class AppSecConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/do_login")
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/")
                 .and().exceptionHandling()
                 .accessDeniedPage("/accessDenied")
                 .and().csrf().disable()
