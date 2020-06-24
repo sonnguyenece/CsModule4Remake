@@ -1,11 +1,11 @@
 package com.codegym.cms;
 
-import com.codegym.cms.aspect.MyLogger;
-import com.codegym.cms.formatter.CustomerTypeFormatter;
+//import com.codegym.cms.aspect.MyLogger;
+//import com.codegym.cms.formatter.CustomerTypeFormatter;
 import com.codegym.cms.service.AppUserService;
 import com.codegym.cms.service.AppUserServiceImpl;
-import com.codegym.cms.service.CustomerService;
-import com.codegym.cms.service.CustomerServiceImpl;
+//import com.codegym.cms.service.CustomerService;
+//import com.codegym.cms.service.CustomerServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -130,25 +130,25 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         return properties;
     }
 
-    @Bean
-    public CustomerService customerService() {
-        return new CustomerServiceImpl();
-    }
-
-    @Bean
-    public CustomerTypeFormatter customerTypeFormatter() {
-        return new CustomerTypeFormatter(customerService());
-    }
-
-    @Override
-    public void addFormatters(FormatterRegistry registry) {
-        registry.addFormatter(customerTypeFormatter());
-    }
-
-    @Bean
-    public MyLogger myLogger() {
-        return new MyLogger();
-    }
+//    @Bean
+//    public CustomerService customerService() {
+//        return new CustomerServiceImpl();
+//    }
+//
+//    @Bean
+//    public CustomerTypeFormatter customerTypeFormatter() {
+//        return new CustomerTypeFormatter(customerService());
+//    }
+//
+//    @Override
+//    public void addFormatters(FormatterRegistry registry) {
+//        registry.addFormatter(customerTypeFormatter());
+//    }
+//
+//    @Bean
+//    public MyLogger myLogger() {
+//        return new MyLogger();
+//    }
 
     @Bean
     public MessageSource messageSource() {

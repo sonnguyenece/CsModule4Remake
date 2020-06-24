@@ -1,6 +1,6 @@
 package com.codegym.cms;
 
-import com.codegym.cms.component.MyAccessDeniedHandler;
+//import com.codegym.cms.component.MyAccessDeniedHandler;
 import com.codegym.cms.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
