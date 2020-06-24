@@ -30,22 +30,29 @@ public class AppSecConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
 
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/admin/**").access("hasRole('ADMIN')")
                 .antMatchers("/user/**").access("hasRole('USER')")
-                .antMatchers("/articles/**").access("hasAnyRole('ADMIN','USER')")
-                .and()
-                .authorizeRequests().antMatchers("/**").hasRole("USER")
+                .antMatchers("/orders/**").access("hasRole('USER')")
+                .antMatchers("/admin/**").access("hasRole('ADMIN')")
+//                .antMatchers("/dba/**").access("hasRole('ADMIN') and hasRole('DBA')")
+//                .and()
+//                .formLogin().successHandler(customSuccessHandler)
+//                .usernameParameter("ssoId").passwordParameter("password")
+//                .and().csrf()
+//                .and().exceptionHandling().accessDeniedPage("/Access_Denied")
+//                .authorizeRequests().antMatchers("/**").hasRole("USER")
+
+
                 .and()
                 .formLogin()
+                .loginPage("/loginForm").usernameParameter("email").passwordParameter("password")
+                .loginProcessingUrl("/do_login")
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .and().exceptionHandling()
-                // .accessDeniedHandler(new MyAccessDeniedHandler())
                 .accessDeniedPage("/accessDenied")
+                .and().csrf().disable()
 
         ;
     }
